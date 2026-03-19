@@ -24,11 +24,11 @@ logger = get_logger(__name__)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup and shutdown."""
-    logger.info("startup", extra={"message": "Project Atlas API starting"})
+    logger.info("Project Atlas API starting")
     # Startup: initialize services, warm up caches
     yield
     # Shutdown: cleanup resources
-    logger.info("shutdown", extra={"message": "Project Atlas API shutting down"})
+    logger.info("Project Atlas API shutting down")
 
 
 def create_app() -> FastAPI:
