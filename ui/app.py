@@ -109,33 +109,42 @@ if page == "📧 File Email":
     with col1:
         st.subheader("Email Input")
 
-        # Quick-fill buttons
+        # Quick-fill buttons — set the widget keys directly, then rerun
         st.markdown("**Quick fill with sample:**")
         qf1, qf2, qf3, qf4 = st.columns(4)
 
-        if qf1.button("🔧 RFI", use_container_width=True):
-            st.session_state["email_sender"] = "s.chen@pacificsteel.com"
-            st.session_state["email_subject"] = "RE: RFI-247 - Structural Steel Connection Detail at Grid Line J-7"
-            st.session_state["email_body"] = "Hi Alex,\n\nFollowing up on RFI-247 regarding the steel connection detail at Grid J-7. We've reviewed the structural drawings (S-401 and S-402) and have concerns about the moment connection.\n\nCan you confirm the design intent? We need to order connection material by end of next week for the Waterfront Mixed-Use Tower.\n\nThanks,\nSarah Chen\nPacific Steel Erectors"
+        def _fill(sender, subject, body):
+            st.session_state["input_sender"] = sender
+            st.session_state["input_subject"] = subject
+            st.session_state["input_body"] = body
 
-        if qf2.button("📄 Submittal", use_container_width=True):
-            st.session_state["email_sender"] = "k.walsh@summitmech.com"
-            st.session_state["email_subject"] = "Submittal SUB-089 - HVAC Diffusers per Spec 23 37 00 - Waterfront Tower"
-            st.session_state["email_body"] = "Please find attached the submittal package for the HVAC linear slot diffusers per Spec Section 23 37 00 for the Waterfront Mixed-Use Tower.\n\nRequested review period: 10 business days\n\nKaren Walsh\nSummit Mechanical"
+        qf1.button("🔧 RFI", use_container_width=True, on_click=_fill, args=(
+            "s.chen@pacificsteel.com",
+            "RE: RFI-247 - Structural Steel Connection Detail at Grid Line J-7",
+            "Hi Alex,\n\nFollowing up on RFI-247 regarding the steel connection detail at Grid J-7. We've reviewed the structural drawings (S-401 and S-402) and have concerns about the moment connection.\n\nCan you confirm the design intent? We need to order connection material by end of next week for the Waterfront Mixed-Use Tower.\n\nThanks,\nSarah Chen\nPacific Steel Erectors",
+        ))
 
-        if qf3.button("💰 Change Order", use_container_width=True):
-            st.session_state["email_sender"] = "s.chen@pacificsteel.com"
-            st.session_state["email_subject"] = "CO #12 - Additional Structural Steel at Roof Level - Waterfront Tower"
-            st.session_state["email_body"] = "Per our discussion at the OAC meeting, we're submitting Change Order #12 for the additional structural steel at the roof level.\n\nAdditional steel weight: 18.5 tons\nProposed price: $148,000\nSchedule impact: 5 working days\n\nSarah Chen\nPacific Steel Erectors"
+        qf2.button("📄 Submittal", use_container_width=True, on_click=_fill, args=(
+            "k.walsh@summitmech.com",
+            "Submittal SUB-089 - HVAC Diffusers per Spec 23 37 00 - Waterfront Tower",
+            "Please find attached the submittal package for the HVAC linear slot diffusers per Spec Section 23 37 00 for the Waterfront Mixed-Use Tower.\n\nRequested review period: 10 business days\n\nKaren Walsh\nSummit Mechanical",
+        ))
 
-        if qf4.button("❓ Ambiguous", use_container_width=True):
-            st.session_state["email_sender"] = "unknown@newcontractor.com"
-            st.session_state["email_subject"] = "Question about the project"
-            st.session_state["email_body"] = "Hi,\n\nI have a question about the specifications. Can someone point me to the right document?\n\nThanks"
+        qf3.button("💰 Change Order", use_container_width=True, on_click=_fill, args=(
+            "s.chen@pacificsteel.com",
+            "CO #12 - Additional Structural Steel at Roof Level - Waterfront Tower",
+            "Per our discussion at the OAC meeting, we're submitting Change Order #12 for the additional structural steel at the roof level.\n\nAdditional steel weight: 18.5 tons\nProposed price: $148,000\nSchedule impact: 5 working days\n\nSarah Chen\nPacific Steel Erectors",
+        ))
 
-        sender = st.text_input("From", value=st.session_state.get("email_sender", ""), key="input_sender")
-        subject = st.text_input("Subject", value=st.session_state.get("email_subject", ""), key="input_subject")
-        body = st.text_area("Body", value=st.session_state.get("email_body", ""), height=200, key="input_body")
+        qf4.button("❓ Ambiguous", use_container_width=True, on_click=_fill, args=(
+            "unknown@newcontractor.com",
+            "Question about the project",
+            "Hi,\n\nI have a question about the specifications. Can someone point me to the right document?\n\nThanks",
+        ))
+
+        sender = st.text_input("From", key="input_sender")
+        subject = st.text_input("Subject", key="input_subject")
+        body = st.text_area("Body", height=200, key="input_body")
 
         file_button = st.button("🚀 File Email", type="primary", use_container_width=True)
 
