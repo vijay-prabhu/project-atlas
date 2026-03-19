@@ -1,0 +1,209 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Project Atlas - Smart Email Filing & Semantic Search for AECO
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Architectures:
+      - arm64
+    Timeout: 300
+    MemorySize: 512
+    Environment:
+      Variables:
+        PINECONE_INDEX_NAME: project-atlas
+        AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+
+Parameters:
+  Stage:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, prod]
+
+Resources:
+  # ─── DynamoDB Tables ─────────────────────────────────────
+
+  EmailsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub atlas-emails-${Stage}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+
+  ProjectsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub atlas-projects-${Stage}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+
+  CheckpointsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub atlas-checkpoints-${Stage}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+
+  FeedbackTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub atlas-feedback-${Stage}
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+
+  # ─── SQS Queues ─────────────────────────────────────────
+
+  EmailProcessingQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub atlas-email-processing-${Stage}
+      VisibilityTimeout: 600
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt EmailProcessingDLQ.Arn
+        maxReceiveCount: 3
+
+  EmailProcessingDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub atlas-email-processing-dlq-${Stage}
+      MessageRetentionPeriod: 1209600
+
+  # ─── S3 Buckets ─────────────────────────────────────────
+
+  DocumentsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub atlas-documents-${Stage}-${AWS::AccountId}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  PromptsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub atlas-prompts-${Stage}-${AWS::AccountId}
+      VersioningConfiguration:
+        Status: Enabled
+
+  # ─── Lambda Functions ───────────────────────────────────
+
+  CDCProcessorFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub atlas-cdc-processor-${Stage}
+      CodeUri: ../services/cdc-processor/
+      Handler: dist/handler.handler
+      Events:
+        DynamoDBStream:
+          Type: DynamoDB
+          Properties:
+            Stream: !GetAtt EmailsTable.StreamArn
+            StartingPosition: TRIM_HORIZON
+            BatchSize: 10
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref EmailsTable
+      Metadata:
+        BuildMethod: esbuild
+        BuildProperties:
+          Minify: true
+          Target: es2020
+          EntryPoints:
+            - src/handler.ts
+
+  WebhookReceiverFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub atlas-webhook-receiver-${Stage}
+      CodeUri: ../services/webhook-receiver/
+      Handler: dist/handler.handler
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /webhook/email
+            Method: post
+      Environment:
+        Variables:
+          QUEUE_URL: !Ref EmailProcessingQueue
+      Policies:
+        - SQSSendMessagePolicy:
+            QueueName: !GetAtt EmailProcessingQueue.QueueName
+      Metadata:
+        BuildMethod: esbuild
+        BuildProperties:
+          Minify: true
+          Target: es2020
+          EntryPoints:
+            - src/handler.ts
+
+  # ─── EventBridge ────────────────────────────────────────
+
+  RAGEvalSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: !Sub atlas-rag-eval-${Stage}
+      Description: Periodic RAG quality evaluation
+      ScheduleExpression: "rate(24 hours)"
+      State: DISABLED
+      Targets: []
+
+Outputs:
+  ApiEndpoint:
+    Description: API Gateway endpoint URL
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/${Stage}"
+
+  EmailsTableName:
+    Value: !Ref EmailsTable
+
+  EmailProcessingQueueUrl:
+    Value: !Ref EmailProcessingQueue
+
+  DocumentsBucketName:
+    Value: !Ref DocumentsBucket

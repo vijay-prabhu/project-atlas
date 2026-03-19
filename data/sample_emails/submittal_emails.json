@@ -1,0 +1,38 @@
+[
+  {
+    "id": "email_010",
+    "sender": "k.walsh@summitmech.com",
+    "sender_name": "Karen Walsh",
+    "recipients": ["p.patel@thorntonarch.com", "a.thornton@thorntonarch.com"],
+    "subject": "Submittal SUB-089 - HVAC Diffusers per Spec 23 37 00 - Waterfront Tower",
+    "body": "Priya / Alex,\n\nPlease find attached the submittal package for the HVAC linear slot diffusers per Spec Section 23 37 00 for the Waterfront Mixed-Use Tower.\n\nSubmittal includes:\n- Product data sheets for TitusDERA linear slot diffusers\n- Performance data at specified CFM values\n- Color selection (RAL 9010 Pure White to match ceiling grid)\n- Shop drawings showing layout for Levels 5-15 typical floor\n\nPlease note this submittal is pending resolution of the beam conflict identified in our RFI for the medical center project - the same diffuser type is specified on both projects.\n\nRequested review period: 10 business days\n\nKaren Walsh\nMechanical Lead\nSummit Mechanical",
+    "attachments": ["SUB-089_product_data.pdf", "SUB-089_shop_drawings.pdf", "SUB-089_performance_data.pdf"],
+    "received_at": "2026-03-12T11:30:00",
+    "thread_id": "thread_sub089",
+    "project_hint": "Waterfront"
+  },
+  {
+    "id": "email_011",
+    "sender": "m.rodriguez@vertexwp.com",
+    "sender_name": "Mike Rodriguez",
+    "recipients": ["p.patel@thorntonarch.com"],
+    "subject": "SUB-090 Resubmission: Curtain Wall System - Unitized Panels - P-2024-0847",
+    "body": "Priya,\n\nPer your review comments on the original submittal, we've updated SUB-090 for the curtain wall unitized panel system. Changes made:\n\n1. Updated thermal break detail per your comment #3\n2. Added condensation gutter at sill per comment #7\n3. Revised structural silicone joint width from 1/2\" to 3/4\" per structural engineer's requirement\n4. Updated wind load calculations for the revised design pressures in Addendum 2\n\nAll other items from the original submittal remain unchanged. See attached mark-up showing revisions in red.\n\nThis is our second submission - please let us know if any additional changes are needed. The lead time for panel fabrication is 16 weeks, so we need approval by end of March to maintain the enclosure schedule.\n\nMike Rodriguez\nSuperintendent\nVertex Waterproofing",
+    "attachments": ["SUB-090_R1_curtainwall.pdf", "SUB-090_R1_calcs.pdf"],
+    "received_at": "2026-03-13T09:15:00",
+    "thread_id": "thread_sub090",
+    "project_hint": "P-2024-0847"
+  },
+  {
+    "id": "email_012",
+    "sender": "r.torres@industrialcc.com",
+    "sender_name": "Rachel Torres",
+    "recipients": ["a.thornton@thorntonarch.com"],
+    "subject": "Submittal #SUB-028 - Overhead Coiling Doors - Industrial Distribution Center",
+    "body": "Alex,\n\nAttached is submittal SUB-028 for the overhead coiling doors specified under Section 13 34 19 for the Industrial Distribution Center project (P-2024-0720).\n\nWe're proposing the Rytec Spiral FV as an alternate to the specified Cookson 900. The Rytec unit offers:\n- Higher cycle speed (up to 100\" per second vs 24\" per second)\n- Full-width window panel option\n- Lower maintenance requirements\n\nThe Rytec meets or exceeds all specified performance criteria. Price differential is +$2,400 per door (7 doors total = +$16,800).\n\nPlease review and advise if the alternate is acceptable.\n\nRachel Torres\nField Engineer\nIndustrial Construction Co",
+    "attachments": ["SUB-028_Rytec_SpiraFV.pdf", "SUB-028_comparison_matrix.pdf"],
+    "received_at": "2026-03-15T14:20:00",
+    "thread_id": "thread_sub028",
+    "project_hint": "Distribution Center"
+  }
+]

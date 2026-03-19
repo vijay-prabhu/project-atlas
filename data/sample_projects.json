@@ -1,0 +1,92 @@
+{
+  "projects": [
+    {
+      "id": "proj_001",
+      "number": "P-2024-0847",
+      "name": "Waterfront Mixed-Use Tower",
+      "client": "Pacific Development Corp",
+      "status": "active",
+      "description": "42-story mixed-use tower with retail podium, 350 residential units, and 3-level underground parking. Waterfront location with seismic requirements.",
+      "disciplines": ["architectural", "structural", "mechanical", "electrical", "plumbing", "civil"]
+    },
+    {
+      "id": "proj_002",
+      "number": "P-2024-1203",
+      "name": "City Hall Renovation Phase 2",
+      "client": "City of Riverside",
+      "status": "active",
+      "description": "Heritage building renovation including seismic retrofit, HVAC modernization, and ADA compliance upgrades. 85,000 SF across 4 floors.",
+      "disciplines": ["architectural", "structural", "mechanical", "electrical"]
+    },
+    {
+      "id": "proj_003",
+      "number": "P-2025-0156",
+      "name": "Highway 401 Bridge Replacement",
+      "client": "Ministry of Transportation",
+      "status": "active",
+      "description": "Replace 3-span prestressed concrete bridge with accelerated construction methods. Maintain 2 lanes of traffic during construction.",
+      "disciplines": ["structural", "civil"]
+    },
+    {
+      "id": "proj_004",
+      "number": "P-2023-0592",
+      "name": "Westfield Medical Center Expansion",
+      "client": "Westfield Health System",
+      "status": "active",
+      "description": "120,000 SF expansion including new emergency department, 3 operating rooms, and 60-bed patient tower. LEED Silver target.",
+      "disciplines": ["architectural", "structural", "mechanical", "electrical", "plumbing"]
+    },
+    {
+      "id": "proj_005",
+      "number": "P-2025-0301",
+      "name": "Oakridge Elementary School",
+      "client": "Unified School District #47",
+      "status": "active",
+      "description": "New K-5 elementary school, 650 students capacity. Single-story with multipurpose room, library, and outdoor learning areas.",
+      "disciplines": ["architectural", "structural", "mechanical", "electrical", "landscape"]
+    },
+    {
+      "id": "proj_006",
+      "number": "P-2024-0720",
+      "name": "Industrial Distribution Center",
+      "client": "Atlas Logistics Inc",
+      "status": "active",
+      "description": "250,000 SF tilt-up concrete distribution warehouse with 36' clear height, 50 dock doors, and 2,000 SF office mezzanine.",
+      "disciplines": ["architectural", "structural", "mechanical", "electrical", "civil"]
+    }
+  ],
+  "rfis": [
+    {"id": "rfi_001", "number": "RFI-247", "subject": "Structural Steel Connection Detail at Grid Line J-7", "from_company": "Pacific Steel Erectors", "to_company": "Thornton Architects", "status": "open", "project_id": "proj_001"},
+    {"id": "rfi_002", "number": "RFI-248", "subject": "Waterproofing Membrane Specification at Parking Level P3", "from_company": "Vertex Waterproofing", "to_company": "Thornton Architects", "status": "open", "project_id": "proj_001"},
+    {"id": "rfi_003", "number": "RFI-112", "subject": "Heritage Window Replacement Approach - North Facade", "from_company": "Morrison Engineering", "to_company": "City of Riverside", "status": "answered", "project_id": "proj_002"},
+    {"id": "rfi_004", "number": "RFI-113", "subject": "Seismic Retrofit Anchor Bolt Spacing at Level 3", "from_company": "Stronghold Contractors", "to_company": "Morrison Engineering", "status": "open", "project_id": "proj_002"},
+    {"id": "rfi_005", "number": "RFI-034", "subject": "Temporary Shoring Design for Traffic Maintenance", "from_company": "Bridge Builders Corp", "to_company": "Ministry of Transportation", "status": "open", "project_id": "proj_003"},
+    {"id": "rfi_006", "number": "RFI-089", "subject": "HVAC Diffuser Layout Conflict with Structural Beams", "from_company": "Summit Mechanical", "to_company": "Westfield Health System", "status": "open", "project_id": "proj_004"},
+    {"id": "rfi_007", "number": "RFI-090", "subject": "Medical Gas Piping Route Through Existing Corridor", "from_company": "Summit Mechanical", "to_company": "Westfield Health System", "status": "open", "project_id": "proj_004"},
+    {"id": "rfi_008", "number": "RFI-015", "subject": "Playground Equipment Foundation Depth", "from_company": "Greenfield Landscape", "to_company": "Unified School District #47", "status": "answered", "project_id": "proj_005"},
+    {"id": "rfi_009", "number": "RFI-052", "subject": "Dock Leveler Pit Dimensions - Doors 12 through 18", "from_company": "Industrial Construction Co", "to_company": "Atlas Logistics Inc", "status": "open", "project_id": "proj_006"},
+    {"id": "rfi_010", "number": "RFI-249", "subject": "Elevator Pit Drainage Detail - Tower Core", "from_company": "Pacific Steel Erectors", "to_company": "Thornton Architects", "status": "open", "project_id": "proj_001"}
+  ],
+  "submittals": [
+    {"id": "sub_001", "number": "SUB-089", "spec_section": "23 37 00", "description": "HVAC Diffusers - Linear Slot Type", "status": "pending", "project_id": "proj_001"},
+    {"id": "sub_002", "number": "SUB-090", "spec_section": "08 44 13", "description": "Curtain Wall System - Unitized Panels", "status": "approved", "project_id": "proj_001"},
+    {"id": "sub_003", "number": "SUB-045", "spec_section": "09 29 00", "description": "Gypsum Board Assemblies - Fire-Rated", "status": "pending", "project_id": "proj_002"},
+    {"id": "sub_004", "number": "SUB-032", "spec_section": "03 41 00", "description": "Precast Concrete Bridge Girders", "status": "approved", "project_id": "proj_003"},
+    {"id": "sub_005", "number": "SUB-067", "spec_section": "11 72 00", "description": "Medical Equipment - Patient Lifts", "status": "pending", "project_id": "proj_004"},
+    {"id": "sub_006", "number": "SUB-012", "spec_section": "32 31 13", "description": "Chain Link Fencing and Gates", "status": "approved", "project_id": "proj_005"},
+    {"id": "sub_007", "number": "SUB-028", "spec_section": "13 34 19", "description": "Overhead Coiling Doors - Insulated", "status": "pending", "project_id": "proj_006"},
+    {"id": "sub_008", "number": "SUB-091", "spec_section": "26 24 16", "description": "Panelboards - 480/277V Distribution", "status": "pending", "project_id": "proj_001"}
+  ],
+  "contacts": [
+    {"name": "Sarah Chen", "email": "s.chen@pacificsteel.com", "company": "Pacific Steel Erectors", "role": "Project Manager", "project_ids": ["proj_001"]},
+    {"name": "Mike Rodriguez", "email": "m.rodriguez@vertexwp.com", "company": "Vertex Waterproofing", "role": "Superintendent", "project_ids": ["proj_001"]},
+    {"name": "James Morrison", "email": "j.morrison@morrisoneng.com", "company": "Morrison Engineering", "role": "Principal Engineer", "project_ids": ["proj_002", "proj_003"]},
+    {"name": "Linda Park", "email": "l.park@stronghold.com", "company": "Stronghold Contractors", "role": "Project Engineer", "project_ids": ["proj_002"]},
+    {"name": "David Kim", "email": "d.kim@bridgebuilders.com", "company": "Bridge Builders Corp", "role": "Site Manager", "project_ids": ["proj_003"]},
+    {"name": "Karen Walsh", "email": "k.walsh@summitmech.com", "company": "Summit Mechanical", "role": "Mechanical Lead", "project_ids": ["proj_004"]},
+    {"name": "Tom Bradley", "email": "t.bradley@greenfield.com", "company": "Greenfield Landscape", "role": "Project Manager", "project_ids": ["proj_005"]},
+    {"name": "Rachel Torres", "email": "r.torres@industrialcc.com", "company": "Industrial Construction Co", "role": "Field Engineer", "project_ids": ["proj_006"]},
+    {"name": "Alex Thornton", "email": "a.thornton@thorntonarch.com", "company": "Thornton Architects", "role": "Principal Architect", "project_ids": ["proj_001", "proj_005"]},
+    {"name": "Priya Patel", "email": "p.patel@thorntonarch.com", "company": "Thornton Architects", "role": "Project Architect", "project_ids": ["proj_001"]}
+  ]
+}

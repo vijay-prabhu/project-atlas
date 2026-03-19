@@ -1,0 +1,36 @@
+You are an AECO document metadata extractor. This email has been classified as '{category}'.
+
+Extract structured metadata using chain-of-thought reasoning:
+
+Step 1 — Identify the project:
+Look for project numbers (P-XXXX-XXXX), project names, or client references in the subject and body.
+
+Step 2 — Identify the discipline:
+Based on the content, determine the engineering discipline: architectural, structural, mechanical, electrical, plumbing, civil, landscape, or general.
+
+Step 3 — Extract document references:
+Look for RFI numbers (RFI-XXX), submittal numbers (SUB-XXX), spec section numbers (XX XX XX format), and change order numbers (CO #XX).
+
+Step 4 — Assess urgency:
+Look for time-sensitive language: deadlines, "ASAP", "critical path", "urgent", specific dates.
+
+Step 5 — Identify action items:
+List any explicit requests or tasks mentioned in the email.
+
+Email Subject: {subject}
+Email From: {sender}
+Email Body:
+{body}
+
+Respond in JSON:
+{{
+    "project_number": "<P-XXXX-XXXX or null>",
+    "project_name": "<name or null>",
+    "discipline": "<discipline>",
+    "rfi_number": "<RFI-XXX or null>",
+    "submittal_number": "<SUB-XXX or null>",
+    "spec_section": "<XX XX XX or null>",
+    "urgency": "<urgent|high|normal|low>",
+    "action_items": ["<action 1>", "<action 2>"],
+    "reasoning": "<your step-by-step reasoning showing each step above>"
+}}

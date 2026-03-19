@@ -1,0 +1,14 @@
+[
+  {
+    "id": "email_060",
+    "sender": "l.park@stronghold.com",
+    "sender_name": "Linda Park",
+    "recipients": ["j.morrison@morrisoneng.com"],
+    "subject": "Daily Report - March 18, 2026 - City Hall Renovation Phase 2",
+    "body": "James,\n\nDaily Report for City Hall Renovation Phase 2\nDate: March 18, 2026\nWeather: Partly cloudy, 8°C\nTemperature Range: 4°C - 12°C\n\nManpower on Site:\n- Stronghold Contractors: 14 workers (4 carpenters, 3 laborers, 2 ironworkers, 2 electricians, 1 superintendent, 1 safety officer, 1 project engineer)\n- Abatement Sub (SafeAir): 4 workers\n- Elevator Sub (Otis): 2 workers\n\nWork Completed Today:\n1. Level 3 West Wing - Completed selective demolition of partition walls in rooms 305-310\n2. Level 2 - Continued asbestos abatement in mechanical room (Day 2 of 5)\n3. Level 1 - Seismic anchor installation Grid A-1 through A-12 complete\n4. Elevator pit - Excavation on hold pending RFI-113 response and change order approval for soil conditions\n\nDelays/Issues:\n- Asbestos abatement in Level 2 mechanical room is proceeding slower than planned due to additional pipe insulation found behind duct chase\n- RFI-113 (anchor bolt spacing) still outstanding - Level 3 retrofit cannot proceed\n\nMaterial Deliveries:\n- 200 LF of W10x22 for seismic bracing - received and stored in staging area\n- Anchor bolt shipment (Hilti HIT-RE 500 V4) - 3 cases received\n\nSafety:\n- Zero incidents\n- Toolbox talk: Working near asbestos abatement areas\n\nRegards,\nLinda Park, P.Eng.\nStronghold Contractors",
+    "attachments": ["Daily_Report_20260318.pdf", "site_photos_20260318.zip"],
+    "received_at": "2026-03-18T17:30:00",
+    "thread_id": "thread_daily_cityhall",
+    "project_hint": "City Hall Renovation"
+  }
+]

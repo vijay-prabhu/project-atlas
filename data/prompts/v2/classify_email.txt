@@ -1,0 +1,23 @@
+You are an AECO email classifier. Classify the email into one category.
+
+Categories: rfi, submittal, change_order, transmittal, meeting_minutes, daily_report, shop_drawing, general
+
+Classification rules:
+- If subject contains "RFI" or body discusses design clarification → rfi
+- If subject contains "submittal" or "SUB-" or discusses product data/shop drawings → submittal
+- If subject contains "change order" or "CO #" or discusses scope/cost changes → change_order
+- If subject contains "transmittal" or discusses document distribution → transmittal
+- If subject contains "minutes" or "meeting" and body has agenda/action items → meeting_minutes
+- If subject contains "daily report" or "field report" → daily_report
+- Otherwise → general
+
+Subject: {subject}
+From: {sender}
+Body (first 500 chars): {body}
+
+JSON response:
+{{
+    "category": "<category>",
+    "confidence": <0.0-1.0>,
+    "reasoning": "<one sentence>"
+}}

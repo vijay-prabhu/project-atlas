@@ -1,0 +1,26 @@
+[
+  {
+    "id": "email_030",
+    "sender": "p.patel@thorntonarch.com",
+    "sender_name": "Priya Patel",
+    "recipients": ["s.chen@pacificsteel.com", "m.rodriguez@vertexwp.com"],
+    "subject": "Transmittal - Revised Structural Drawings S-401 through S-410 - Waterfront Tower",
+    "body": "Sarah / Mike,\n\nPlease find attached the revised structural drawings for the Waterfront Mixed-Use Tower, Levels 15-25. These incorporate the changes from Addendum 3 and address the connection details raised in RFI-247.\n\nDrawings included:\n- S-401 Rev 3: Structural Framing Plan Level 15\n- S-402 Rev 3: Structural Framing Plan Level 16\n- S-403 Rev 2: Structural Framing Plan Level 17-20 (Typical)\n- S-405 Rev 3: Connection Details Sheet 1\n- S-406 Rev 2: Connection Details Sheet 2\n- S-410 Rev 1: Miscellaneous Steel Details\n\nKey changes highlighted in revision clouds. Please confirm receipt and update your sets accordingly.\n\nPriya Patel\nProject Architect\nThornton Architects",
+    "attachments": ["S-401_Rev3.pdf", "S-402_Rev3.pdf", "S-403_Rev2.pdf", "S-405_Rev3.pdf", "S-406_Rev2.pdf", "S-410_Rev1.pdf"],
+    "received_at": "2026-03-16T15:00:00",
+    "thread_id": "thread_transmittal_structural",
+    "project_hint": "Waterfront"
+  },
+  {
+    "id": "email_031",
+    "sender": "j.morrison@morrisoneng.com",
+    "sender_name": "James Morrison",
+    "recipients": ["d.kim@bridgebuilders.com", "l.park@stronghold.com"],
+    "subject": "Drawing Transmittal - Bridge Deck Reinforcing Details - Highway 401",
+    "body": "David,\n\nTransmitting the revised bridge deck reinforcing details for the Highway 401 Bridge Replacement. These drawings supersede the previous issue dated February 15.\n\nChanges:\n- Increased top mat reinforcing from #5 @ 6\" to #6 @ 5\" per updated load rating\n- Added additional shear studs on girder top flanges\n- Revised concrete cover from 2\" to 2.5\" for durability\n\nPlease note these changes may affect your rebar procurement. Let me know if the revised quantities impact your schedule.\n\nJames Morrison, P.Eng.\nPrincipal Engineer\nMorrison Engineering Group",
+    "attachments": ["Bridge_Deck_Reinforcing_Rev2.pdf"],
+    "received_at": "2026-03-14T11:20:00",
+    "thread_id": "thread_transmittal_bridge",
+    "project_hint": "Highway 401 Bridge"
+  }
+]

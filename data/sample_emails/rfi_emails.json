@@ -1,0 +1,62 @@
+[
+  {
+    "id": "email_001",
+    "sender": "s.chen@pacificsteel.com",
+    "sender_name": "Sarah Chen",
+    "recipients": ["a.thornton@thorntonarch.com", "p.patel@thorntonarch.com"],
+    "subject": "RE: RFI-247 - Structural Steel Connection Detail at Grid Line J-7",
+    "body": "Hi Alex,\n\nFollowing up on RFI-247 regarding the steel connection detail at Grid J-7. We've reviewed the structural drawings (S-401 and S-402) and have concerns about the moment connection at this location.\n\nThe current detail shows a bolted end plate connection, but given the seismic requirements for the Waterfront Tower, we believe a welded flange / bolted web connection would be more appropriate. This is consistent with what we used at Grid Lines H-5 through H-9.\n\nCan you confirm the design intent? We need to order connection material by end of next week to maintain our erection schedule for levels 15-20.\n\nAttached: Marked-up connection detail (J7_markup.pdf)\n\nThanks,\nSarah Chen\nProject Manager\nPacific Steel Erectors\n(604) 555-1234",
+    "attachments": ["J7_markup.pdf"],
+    "received_at": "2026-03-15T09:23:00",
+    "thread_id": "thread_rfi247",
+    "project_hint": "Waterfront Mixed-Use Tower"
+  },
+  {
+    "id": "email_002",
+    "sender": "l.park@stronghold.com",
+    "sender_name": "Linda Park",
+    "recipients": ["j.morrison@morrisoneng.com"],
+    "subject": "RFI-113: Seismic Retrofit Anchor Bolt Spacing - Level 3 West Wing",
+    "body": "James,\n\nWe've started layout for the seismic retrofit anchors on Level 3 West Wing per drawing S-305. The specified spacing of 12\" o.c. conflicts with the existing rebar locations we found during exploratory demolition.\n\nOur GPR scan shows #8 bars at 6\" centers in the existing slab, which leaves no clear path for the 3/4\" anchor bolts at the specified spacing. We see three options:\n\n1. Reduce spacing to 18\" o.c. (needs engineering calc)\n2. Use adhesive anchors that can be installed between existing rebar\n3. Core drill through rebar (not recommended)\n\nPlease advise which approach is acceptable. This is on our critical path - Level 3 retrofit needs to complete by April 10 to maintain the overall project schedule.\n\nRegards,\nLinda Park, P.Eng.\nProject Engineer\nStronghold Contractors",
+    "attachments": ["L3_GPR_scan_results.pdf", "S-305_markup.pdf"],
+    "received_at": "2026-03-14T14:45:00",
+    "thread_id": "thread_rfi113",
+    "project_hint": "City Hall Renovation"
+  },
+  {
+    "id": "email_003",
+    "sender": "k.walsh@summitmech.com",
+    "sender_name": "Karen Walsh",
+    "recipients": ["p.patel@thorntonarch.com"],
+    "subject": "NEW RFI - HVAC Diffuser Layout Conflict with Structural Beams - Westfield Medical",
+    "body": "Priya,\n\nWe've identified a coordination issue on the Westfield Medical Center Expansion. The linear slot diffusers specified in the new emergency department (Spec Section 23 37 00) cannot be installed as shown on drawing M-201.\n\nThe structural beams at grid lines 4 and 6 are 24\" deep W-shapes that drop below the ceiling grid. The diffuser layout on M-201 shows continuous slots running perpendicular to these beams, which isn't physically possible.\n\nWe need either:\n- Revised diffuser layout that works around the beam locations\n- Confirmation that structural can provide web penetrations for the ductwork\n\nThis affects Submittal SUB-089 which is currently pending - we can't finalize the diffuser shop drawings until this is resolved.\n\nKaren Walsh\nMechanical Lead\nSummit Mechanical",
+    "attachments": ["M-201_conflict_markup.pdf"],
+    "received_at": "2026-03-16T10:12:00",
+    "thread_id": "thread_new_rfi_hvac",
+    "project_hint": null
+  },
+  {
+    "id": "email_004",
+    "sender": "d.kim@bridgebuilders.com",
+    "sender_name": "David Kim",
+    "recipients": ["j.morrison@morrisoneng.com"],
+    "subject": "RE: RFI-034 Temporary Shoring Design - Highway 401 Bridge",
+    "body": "James,\n\nThanks for the preliminary shoring design. We've reviewed it with our shoring subcontractor and have the following comments on RFI-034:\n\n1. The proposed H-pile spacing at 8'-0\" may need to be reduced to 6'-0\" based on the actual soil conditions we encountered. The geotech boring at Station 4+50 showed much softer material than the original report indicated.\n\n2. We need to maintain a minimum 14'-0\" vertical clearance for the maintained traffic lanes. The current design shows 13'-6\" which won't meet MTO requirements.\n\n3. Can we use steel sheet piling instead of timber lagging? Our sub has the steel sheets available immediately but would need to order timber.\n\nWe need the revised design by March 25 to maintain our April 1 start date for Phase 2 demolition.\n\nDavid Kim\nSite Manager\nBridge Builders Corp",
+    "attachments": [],
+    "received_at": "2026-03-17T08:30:00",
+    "thread_id": "thread_rfi034",
+    "project_hint": "Highway 401"
+  },
+  {
+    "id": "email_005",
+    "sender": "r.torres@industrialcc.com",
+    "sender_name": "Rachel Torres",
+    "recipients": ["a.thornton@thorntonarch.com"],
+    "subject": "RFI-052 Response Needed: Dock Leveler Pit Dimensions - Doors 12-18",
+    "body": "Alex,\n\nStill waiting on the response to RFI-052 regarding the dock leveler pit dimensions for Doors 12 through 18 at the Industrial Distribution Center.\n\nThe pit dimensions shown on drawing A-104 (6'-0\" x 7'-0\" x 12\") don't match the manufacturer's requirements for the specified Rite-Hite RHJ-7000 leveler, which needs a 6'-6\" x 8'-0\" x 14\" pit.\n\nWe've already formed and poured pits for Doors 1-11 per the drawing dimensions. If the dimensions change for Doors 12-18, we need to know ASAP before we set the forms on Monday.\n\nPlease prioritize this - it's been outstanding for 8 days.\n\nRachel Torres\nField Engineer\nIndustrial Construction Co",
+    "attachments": ["RHJ7000_pit_requirements.pdf"],
+    "received_at": "2026-03-18T16:05:00",
+    "thread_id": "thread_rfi052",
+    "project_hint": "Distribution Center"
+  }
+]

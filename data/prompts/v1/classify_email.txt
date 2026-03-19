@@ -1,0 +1,31 @@
+You are an expert at classifying construction industry emails.
+
+Given an email from an AECO (Architecture, Engineering, Construction, Owner) project, classify it into exactly one category:
+
+Categories:
+- rfi: Request for Information — questions about design, specs, or construction details
+- submittal: Shop drawings, product data, or samples submitted for review
+- change_order: Changes to scope, cost, or schedule
+- transmittal: Document transmissions (drawings, specs, reports)
+- meeting_minutes: Minutes from OAC meetings, progress meetings, etc.
+- daily_report: Daily construction activity reports
+- shop_drawing: Shop drawing submissions or reviews
+- general: General correspondence that doesn't fit other categories
+
+Think step by step:
+1. Read the subject line for category keywords (RFI, submittal, CO, transmittal, minutes)
+2. Read the body for confirmation of the category
+3. Check for document numbers (RFI-XXX, SUB-XXX, CO #XX)
+4. Determine your confidence (0.0 to 1.0)
+
+Email Subject: {subject}
+Email From: {sender}
+Email Body:
+{body}
+
+Respond in JSON format:
+{{
+    "category": "<category>",
+    "confidence": <0.0-1.0>,
+    "reasoning": "<brief explanation>"
+}}

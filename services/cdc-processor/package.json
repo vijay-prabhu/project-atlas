@@ -1,0 +1,22 @@
+{
+  "name": "atlas-cdc-processor",
+  "version": "1.0.0",
+  "description": "CDC processor for DynamoDB Streams - indexes emails to search",
+  "main": "dist/handler.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.500.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "email_050",
+    "sender": "s.chen@pacificsteel.com",
+    "sender_name": "Sarah Chen",
+    "recipients": ["p.patel@thorntonarch.com"],
+    "subject": "Crane Schedule Update - Waterfront Tower",
+    "body": "Priya,\n\nQuick update on the crane schedule for the Waterfront Tower. Tower crane TC-2 will be out of service March 22-24 for the annual inspection and load test. During this window, we'll be limited to TC-1 only.\n\nPlease coordinate with Mike's curtain wall team to avoid scheduling any heavy panel lifts during those dates. I've already notified the concrete subcontractor.\n\nAlso, we're planning the crane jump for TC-1 on April 5 to reach levels 30-35. This will require a full day shutdown of both cranes. Please share this with all subs so they can plan material deliveries accordingly.\n\nSarah",
+    "attachments": [],
+    "received_at": "2026-03-18T08:15:00",
+    "thread_id": "thread_crane_schedule",
+    "project_hint": "Waterfront"
+  },
+  {
+    "id": "email_051",
+    "sender": "t.bradley@greenfield.com",
+    "sender_name": "Tom Bradley",
+    "recipients": ["a.thornton@thorntonarch.com"],
+    "subject": "Landscape Planting Schedule - Oakridge Elementary",
+    "body": "Alex,\n\nWanted to touch base on the landscape planting schedule for Oakridge Elementary. Spring planting season starts mid-April in our zone, and we need to have the irrigation system tested and operational by then.\n\nCurrent status:\n- Rough grading: complete\n- Irrigation mainline: 90% installed\n- Lateral lines: starting next week\n- Topsoil delivery: scheduled March 28 (180 cubic yards)\n- Tree deliveries: confirmed with nursery for April 15\n\nThe playground equipment foundations are poured per the approved RFI-015 response. We're ready for the equipment installation crew whenever the GC schedules them.\n\nOne concern: the specified River Birch (Betula nigra) for the main entry may not be available in the 3\" caliper size. The nursery has 2.5\" caliper available now, or we'd need to wait until fall for 3\". Your call.\n\nTom Bradley\nGreenfield Landscape",
+    "attachments": [],
+    "received_at": "2026-03-17T13:45:00",
+    "thread_id": "thread_landscape",
+    "project_hint": "Oakridge Elementary"
+  },
+  {
+    "id": "email_052",
+    "sender": "noreply@acmesupply.com",
+    "sender_name": "ACME Construction Supply",
+    "recipients": ["a.thornton@thorntonarch.com"],
+    "subject": "Your Weekly Deals - Save 15% on Safety Equipment!",
+    "body": "SPRING SALE! Save 15% on all safety equipment this week only!\n\nHard hats, safety vests, fall protection harnesses, and more.\n\nShop now at acmesupply.com\n\nFree shipping on orders over $500.\n\nUnsubscribe: reply STOP",
+    "attachments": [],
+    "received_at": "2026-03-18T06:00:00",
+    "thread_id": null,
+    "project_hint": null
+  },
+  {
+    "id": "email_053",
+    "sender": "k.walsh@summitmech.com",
+    "sender_name": "Karen Walsh",
+    "recipients": ["p.patel@thorntonarch.com"],
+    "subject": "Medical Gas Routing Question - Westfield Medical Center",
+    "body": "Priya,\n\nWe're starting the medical gas rough-in for the Westfield Medical Center expansion next week. Before we begin, I want to confirm the routing through the existing corridor on Level 2.\n\nThe drawings show the medical gas piping (O2, N2O, vacuum, medical air) running above the corridor ceiling from the new manifold room to the patient tower. However, the existing corridor has a hard ceiling at 9'-0\" AFF with only 18\" of plenum space above.\n\nOur piping package (4 pipes plus supports) needs a minimum 24\" clear space. Can we:\n1. Lower the corridor ceiling to 8'-6\" to gain the extra space?\n2. Route through an alternate path (through the adjacent storage room)?\n3. Use smaller diameter piping with a booster at the midpoint?\n\nThis relates to RFI-090 which I submitted last week. Just want to make sure we're aligned before we start ordering material.\n\nKaren",
+    "attachments": [],
+    "received_at": "2026-03-18T14:30:00",
+    "thread_id": "thread_medgas",
+    "project_hint": "Westfield Medical"
+  }
+]

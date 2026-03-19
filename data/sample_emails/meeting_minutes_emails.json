@@ -1,0 +1,26 @@
+[
+  {
+    "id": "email_040",
+    "sender": "p.patel@thorntonarch.com",
+    "sender_name": "Priya Patel",
+    "recipients": ["s.chen@pacificsteel.com", "m.rodriguez@vertexwp.com", "k.walsh@summitmech.com", "a.thornton@thorntonarch.com"],
+    "subject": "Meeting Minutes - OAC Meeting #27 - March 13, 2026 - Waterfront Tower",
+    "body": "All,\n\nPlease find the minutes from OAC Meeting #27 for the Waterfront Mixed-Use Tower project held on March 13, 2026.\n\nAttendees: Alex Thornton (TA), Priya Patel (TA), Sarah Chen (PSE), Mike Rodriguez (VW), Karen Walsh (SM)\n\nKey Discussion Items:\n\n1. STRUCTURAL STEEL - Levels 15-20 erection on schedule. Connection detail at J-7 (RFI-247) to be resolved this week. Sarah confirmed material for levels 20-25 is ordered and on track.\n\n2. BUILDING ENVELOPE - Curtain wall mock-up testing scheduled for March 25. Mike to coordinate with testing lab. SUB-090 resubmission under review.\n\n3. MECHANICAL - HVAC diffuser conflict with structural beams identified by Karen. New RFI to be issued. Submittal SUB-089 on hold pending resolution.\n\n4. SCHEDULE - Overall project tracking 3 days ahead. Critical path items: curtain wall mock-up approval, roof steel CO #12 approval.\n\n5. CHANGE ORDERS - CO #12 (roof steel) submitted by PSE for $148,000. Owner review in progress.\n\nAction Items:\n- Alex: Respond to RFI-247 by March 20\n- Mike: Schedule mock-up test, confirm lab availability\n- Karen: Issue formal RFI for diffuser/beam conflict\n- Priya: Distribute revised structural drawings (S-401 through S-410)\n\nNext meeting: March 27, 2026 at 10:00 AM\n\nPriya Patel\nProject Architect\nThornton Architects",
+    "attachments": ["OAC_Meeting_27_Minutes.pdf"],
+    "received_at": "2026-03-14T16:30:00",
+    "thread_id": "thread_oac27",
+    "project_hint": "Waterfront Mixed-Use Tower"
+  },
+  {
+    "id": "email_041",
+    "sender": "j.morrison@morrisoneng.com",
+    "sender_name": "James Morrison",
+    "recipients": ["l.park@stronghold.com", "d.kim@bridgebuilders.com"],
+    "subject": "Mtg Minutes - Site Progress Meeting #8 - March 12 - City Hall Renovation",
+    "body": "Linda, David,\n\nMinutes from Progress Meeting #8 for the City Hall Renovation Phase 2.\n\nDate: March 12, 2026\nLocation: On-site trailer\n\n1. DEMOLITION - Level 3 selective demolition 85% complete. Discovered additional asbestos in pipe insulation at west wing mechanical room. Abatement contractor mobilizing Monday.\n\n2. SEISMIC RETROFIT - Level 1 and 2 anchor installation complete. Level 3 on hold pending RFI-113 resolution (anchor bolt spacing conflict with existing rebar).\n\n3. HERITAGE WINDOWS - North facade window replacement samples approved by Heritage Committee. RFI-112 closed. Fabrication lead time: 12 weeks from order.\n\n4. ELEVATOR - New elevator pit excavation started. Encountered unexpected soil conditions - change order forthcoming.\n\n5. SCHEDULE - Currently 4 days behind due to asbestos discovery. Recovery plan being developed.\n\nAction Items:\n- James: Respond to RFI-113 by March 19\n- Linda: Submit asbestos change order with pricing\n- Linda: Provide elevator pit soil condition documentation\n\nJames Morrison, P.Eng.\nMorrison Engineering Group",
+    "attachments": ["Progress_Meeting_8_Minutes.pdf"],
+    "received_at": "2026-03-13T17:00:00",
+    "thread_id": "thread_progress8",
+    "project_hint": "City Hall"
+  }
+]

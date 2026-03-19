@@ -1,0 +1,26 @@
+[
+  {
+    "id": "email_020",
+    "sender": "s.chen@pacificsteel.com",
+    "sender_name": "Sarah Chen",
+    "recipients": ["a.thornton@thorntonarch.com", "p.patel@thorntonarch.com"],
+    "subject": "CO #12 - Additional Structural Steel at Roof Level - Waterfront Tower",
+    "body": "Alex,\n\nPer our discussion at the OAC meeting last Thursday, we're submitting Change Order #12 for the additional structural steel required at the roof level of the Waterfront Mixed-Use Tower.\n\nScope:\n- Additional W14x90 beams at grid lines K-2 through K-8 to support the revised rooftop mechanical unit layout\n- New HSS 8x8x1/2 columns at 4 locations to support the cooling tower dunnage\n- Associated connections, base plates, and anchor bolts\n\nAdditional steel weight: 18.5 tons\nProposed price: $148,000 (material + labor + equipment)\nSchedule impact: 5 working days (can be concurrent with current Level 40 work)\n\nPlease review and advise. We'd like to order the material within the next 2 weeks to avoid further schedule impact.\n\nSarah Chen\nProject Manager\nPacific Steel Erectors",
+    "attachments": ["CO12_pricing_breakdown.pdf", "CO12_revised_roof_framing.pdf"],
+    "received_at": "2026-03-17T11:45:00",
+    "thread_id": "thread_co12",
+    "project_hint": "Waterfront Tower"
+  },
+  {
+    "id": "email_021",
+    "sender": "l.park@stronghold.com",
+    "sender_name": "Linda Park",
+    "recipients": ["j.morrison@morrisoneng.com"],
+    "subject": "Change Order Request - Unforeseen Soil Conditions - City Hall Renovation",
+    "body": "James,\n\nDuring excavation for the new elevator pit at the City Hall Renovation project, we encountered soil conditions significantly different from the geotechnical report. Specifically:\n\n- The report indicated dense glacial till at 8' below grade\n- We found loose, saturated sand with organic layers starting at 6' below grade\n- Water table is 2' higher than reported\n\nThis requires:\n1. Sheet pile shoring (not originally scoped) - estimated $45,000\n2. Dewatering system for 3 weeks - estimated $18,000\n3. Over-excavation and engineered fill - estimated $22,000\n4. Additional concrete for thickened pit walls - estimated $8,500\n\nTotal change order request: $93,500\nSchedule impact: 8 working days\n\nWe've documented the conditions with photos and video. The geotech engineer visited site today and confirmed the conditions differ materially from the original borings.\n\nLinda Park, P.Eng.\nStronghold Contractors",
+    "attachments": ["CO_soil_conditions_photos.pdf", "CO_geotech_field_report.pdf", "CO_pricing_detail.pdf"],
+    "received_at": "2026-03-18T10:30:00",
+    "thread_id": "thread_co_cityhall",
+    "project_hint": "City Hall"
+  }
+]
