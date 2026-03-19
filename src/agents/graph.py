@@ -258,7 +258,19 @@ def run_filing_agent(
 
     config = {"configurable": {"thread_id": thread_id or email_id}}
 
-    # Run the graph
+    # Run the graph — may pause at human_review interrupt
     result = graph.invoke(initial_state, config=config)
+
+    # If the graph paused for human review, save to our checkpoint store
+    # so the Pending Reviews page can show it
+    if result.get("filing_action") == "needs_review":
+        from src.agents.checkpoints import get_checkpoint_store
+        store = get_checkpoint_store()
+        store.save(
+            thread_id=thread_id or email_id,
+            state=dict(result),
+            tenant_id=tenant_id,
+        )
+        result["needs_human_review"] = True
 
     return result
