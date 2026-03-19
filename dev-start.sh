@@ -26,16 +26,16 @@ log "Starting Docker Compose services..."
 cd "$PROJECT_ROOT"
 docker compose up -d > "$LOG_DIR/docker-compose.log" 2>&1
 
-# Wait for DynamoDB Local
-for i in $(seq 1 15); do
-  if curl -sf http://localhost:8001 > /dev/null 2>&1; then
+# Wait for DynamoDB Local (returns 400 without auth, so check for any response)
+for i in $(seq 1 20); do
+  if curl -s http://localhost:8001 > /dev/null 2>&1; then
     ok "DynamoDB Local ready"
     break
   fi
   sleep 1
 done
 
-if ! curl -sf http://localhost:8001 > /dev/null 2>&1; then
+if ! curl -s http://localhost:8001 > /dev/null 2>&1; then
   err "DynamoDB Local failed to start. Check $LOG_DIR/docker-compose.log"
   exit 1
 fi
