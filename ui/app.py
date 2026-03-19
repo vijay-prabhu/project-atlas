@@ -17,8 +17,18 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.agents.graph import run_filing_agent
 from src.agents.search_agent import run_search_agent
-from src.agents.checkpoints import get_checkpoint_store
+from src.agents.checkpoints import get_checkpoint_store, CheckpointStore
 from src.data.generator import generate_email
+
+# ─── Persistent checkpoint store via session state ────────────────────
+# Module-level singletons don't survive Streamlit reruns reliably.
+# Use st.session_state to keep the checkpoint store alive across pages.
+
+if "checkpoint_store" not in st.session_state:
+    st.session_state["checkpoint_store"] = CheckpointStore()
+
+def get_ui_checkpoint_store() -> CheckpointStore:
+    return st.session_state["checkpoint_store"]
 
 # ─── Page Config ──────────────────────────────────────────────────────
 
@@ -154,14 +164,20 @@ if page == "📧 File Email":
         if file_button and subject and body:
             with st.spinner("Running agent pipeline: classify → extract → file..."):
                 start = time.perf_counter()
+                email_id = f"ui_{int(time.time())}"
                 result = run_filing_agent(
-                    email_id=f"ui_{int(time.time())}",
+                    email_id=email_id,
                     email_subject=subject,
                     email_body=body,
                     email_sender=sender,
                     tenant_id=tenant_id,
                 )
                 duration = (time.perf_counter() - start) * 1000
+
+                # Save to session-state checkpoint store if needs review
+                if result.get("filing_action") == "needs_review":
+                    store = get_ui_checkpoint_store()
+                    store.save(email_id, dict(result), tenant_id)
 
             st.success(f"Pipeline complete in {duration:.0f}ms")
 
@@ -425,12 +441,12 @@ elif page == "📋 Pending Reviews":
     st.title("📋 Pending Human Reviews")
     st.markdown("Emails that need human approval before filing. This is the human-in-the-loop (HITL) interface.")
 
-    store = get_checkpoint_store()
+    store = get_ui_checkpoint_store()
     pending = store.list_pending(tenant_id)
 
     if not pending:
         st.info("No pending reviews. File some emails with medium confidence to see them here.")
-        st.markdown("Try filing an ambiguous email from the **📧 File Email** page.")
+        st.markdown("Try filing an RFI email from the **📧 File Email** page — it scores 84% confidence which triggers human review.")
     else:
         for record in pending:
             state = record.state
