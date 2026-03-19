@@ -31,28 +31,34 @@ The system has three layers:
 # Install dependencies
 python3.11 -m venv .venv && source .venv/bin/activate
 make install-dev
+pip install streamlit faker locust
 
-# Start all services (DynamoDB Local + API)
+# Start all services (DynamoDB Local + API + Dashboard)
 ./dev-start.sh
 
 # Run tests
 make test
 
-# File an email
-curl -X POST http://localhost:8000/api/v1/emails/file \
-  -H 'Content-Type: application/json' \
-  -H 'X-Tenant-ID: demo' \
-  -d '{"email": {"sender": "s.chen@pacificsteel.com", "subject": "RE: RFI-247 - Steel Connection Detail", "body": "Following up on RFI-247 regarding the steel connection detail at Grid J-7."}}'
-
-# Search
-curl -X POST http://localhost:8000/api/v1/search \
-  -H 'Content-Type: application/json' \
-  -H 'X-Tenant-ID: demo' \
-  -d '{"query": "What is the status of RFI-247?"}'
-
 # Stop all services
 ./dev-stop.sh
 ```
+
+After `./dev-start.sh`, open:
+- **http://localhost:8501** — Demo Dashboard (file emails, search, batch demo, agent trace viewer, HITL reviews)
+- **http://localhost:8000/docs** — Swagger API docs
+- **http://localhost:8002** — DynamoDB Admin UI
+
+### Demo Dashboard
+
+The Streamlit dashboard has 5 pages:
+
+| Page | What it does |
+|------|-------------|
+| **File Email** | Submit an email (or use quick-fill samples), watch classification, metadata extraction, and filing decision with confidence scoring |
+| **Search** | Natural language search with hybrid retrieval, RAG answers, citations, and guardrail warnings |
+| **Batch Demo** | Generate and file 5-50 random AECO emails, see classification accuracy and distribution charts |
+| **Agent Trace Viewer** | Generate a random email, visualize the full pipeline flow (classify → extract → file → result) with timing |
+| **Pending Reviews** | Human-in-the-loop interface — approve, reject, or correct emails that need human review |
 
 ## Scale Testing
 
@@ -60,17 +66,28 @@ curl -X POST http://localhost:8000/api/v1/search \
 # Generate 10,000 realistic AECO emails
 make generate-10k
 
-# Load into DynamoDB Local
+# Generate 100K and load into DynamoDB Local
+make generate-100k
 make generate-dynamo
 
-# Run load tests (50 concurrent users, 2 minutes)
-make loadtest-headless
-
-# Or use the Locust web UI
+# Run load tests — Locust web UI at http://localhost:8089
 make loadtest
+
+# Or headless mode (50 concurrent users, 2 minutes)
+make loadtest-headless
 ```
 
-The data generator produces 4,000+ emails/sec using Faker with a custom AECO provider. Emails include realistic RFIs, submittals, change orders, transmittals, and meeting minutes with proper industry terminology, spec section references, and project codes.
+The data generator produces **4,375 emails/sec** using Faker with a custom AECO provider (20 companies, 10 projects, 14 spec sections, 15 RFI templates). DynamoDB bulk loading runs at **3,236 records/sec** via `batch_writer()`.
+
+### Load Test Results (50 concurrent users, multi-tenant)
+
+| Endpoint | Requests | Failures | P50 (ms) | P95 (ms) | Req/s |
+|----------|----------|----------|----------|----------|-------|
+| POST /emails/file | 977 | 0 | 20 | 50 | 16.8 |
+| POST /search | 582 | 0 | 8 | 46 | 10.0 |
+| POST /feedback | 171 | 0 | 5 | 42 | 2.9 |
+| GET /health | 227 | 0 | 3 | 22 | 3.9 |
+| **Total** | **1,957** | **0** | **15** | **48** | **33.7** |
 
 ## Project Structure
 
@@ -97,6 +114,7 @@ services/            # TypeScript Lambda functions
 ├── cdc-processor/   # DynamoDB Streams → search index
 └── webhook-receiver/ # Email webhook → SQS
 
+ui/                  # Streamlit demo dashboard
 infra/               # AWS SAM template
 loadtest/            # Locust load tests
 data/                # Sample AECO emails + versioned prompts
@@ -112,4 +130,5 @@ docs/adr/            # Architecture Decision Records
 - **API**: FastAPI, Pydantic v2
 - **AWS**: Lambda, DynamoDB, SQS, S3, EventBridge (SAM)
 - **Languages**: Python 3.11, TypeScript
+- **UI**: Streamlit (demo dashboard)
 - **Testing**: pytest (48 tests), Locust (load testing)

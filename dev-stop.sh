@@ -24,6 +24,7 @@ fi
 
 # ─── Kill by process pattern (fallback) ──────────────────────────────
 pkill -f "uvicorn src.api.main:app" 2>/dev/null || true
+pkill -f "streamlit run ui/app.py" 2>/dev/null || true
 pkill -f "locust" 2>/dev/null || true
 
 ok "App processes stopped"

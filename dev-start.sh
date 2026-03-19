@@ -158,25 +158,39 @@ if ! curl -sf http://localhost:8000/health > /dev/null 2>&1; then
   exit 1
 fi
 
+# ─── 5. Streamlit Demo Dashboard (port 8501) ─────────────────────────
+log "Starting Streamlit dashboard..."
+cd "$PROJECT_ROOT"
+
+streamlit run ui/app.py --server.headless true --server.port 8501 > "$LOG_DIR/ui.log" 2>&1 &
+echo "$!" >> "$PID_FILE"
+
+for i in $(seq 1 10); do
+  if curl -sf http://localhost:8501 > /dev/null 2>&1; then
+    ok "Dashboard ready → http://localhost:8501"
+    break
+  fi
+  sleep 1
+done
+
+if ! curl -sf http://localhost:8501 > /dev/null 2>&1; then
+  warn "Dashboard may still be starting. Check $LOG_DIR/ui.log"
+fi
+
 # ─── Summary ─────────────────────────────────────────────────────────
 echo ""
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${GREEN} Project Atlas — All services running${NC}"
 echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
+echo "  Demo Dashboard    → http://localhost:8501"
 echo "  API Server        → http://localhost:8000"
 echo "  API Docs          → http://localhost:8000/docs"
 echo "  DynamoDB Local    → http://localhost:8001"
 echo "  DynamoDB Admin    → http://localhost:8002"
 echo ""
 echo "  Logs:  $LOG_DIR/"
-echo "    api.log, docker-compose.log"
-echo ""
-echo "  Test email filing:"
-echo "    curl -X POST http://localhost:8000/api/v1/emails/file \\"
-echo "      -H 'Content-Type: application/json' \\"
-echo "      -H 'X-Tenant-ID: demo' \\"
-echo "      -d '{\"email\": {\"sender\": \"s.chen@pacificsteel.com\", \"subject\": \"RE: RFI-247 - Steel Connection\", \"body\": \"Following up on RFI-247 regarding the connection detail.\"}}'"
+echo "    ui.log, api.log, docker-compose.log"
 echo ""
 echo -e "  Stop all:  ${YELLOW}./dev-stop.sh${NC}"
 echo ""
