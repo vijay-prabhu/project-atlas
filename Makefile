@@ -16,6 +16,9 @@ install-dev:
 dev:
 	uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8000
 
+ui:
+	streamlit run ui/app.py
+
 seed:
 	python -m src.data.generator --count 100 --output data/generated_emails.json
 
